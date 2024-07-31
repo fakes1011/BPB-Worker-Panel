@@ -806,7 +806,7 @@ const getNormalConfigs = async (env, hostName, client) => {
                 defaultHttpsPorts.includes(port) 
                     ? `&security=tls&sni=${
                         randomUpperCase(hostName)
-                    }&fp=randomized&alpn=${
+                    }&fp=chrome&alpn=${
                         client === 'singbox' ? 'http/1.1' : 'h2,http/1.1'
                     }`
                     : ''}&path=${`/${getRandomPath(16)}${proxyIP ? `/${encodeURIComponent(btoa(proxyIP))}` : ''}`}${
@@ -3253,7 +3253,7 @@ const singboxOutboundTemp = {
         server_name: "",
         utls: {
             enabled: true,
-            fingerprint: "randomized"
+            fingerprint: "chrome"
         }
     },
     transport: {
